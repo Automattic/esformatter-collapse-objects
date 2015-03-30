@@ -40,52 +40,69 @@ and something like this to your esformatter config file:
 }
 ```
 
+## Important
+
+In order to collapse Array literals, you need to have esformatter expand them in
+the first place. Add the following to your esformatter config when collapsing
+Arrays:
+
+```json
+"lineBreak": {
+  "before": {
+    "ArrayExpressionClosing": 1
+  },
+  "after": {
+    "ArrayExpressionOpening": 1,
+    "ArrayExpressionComma": 1
+  }
+},
+```
 
 ## Options
 
-  Options map esprima AST Node types (in this case both ObjectExpression and
-  ArrayExpression) to their respective options, just like indentation in
-  esformatter.
+Options map esprima AST Node types (in this case both ObjectExpression and
+ArrayExpression) to their respective options, just like indentation in
+esformatter.
 
-  You can also avoid collapsing literals under certain conditions
-  like a maximum number of keys, or when they contain other nodes like
-  FunctionExpression.
+You can also avoid collapsing literals under certain conditions
+like a maximum number of keys, or when they contain other nodes like
+FunctionExpression.
 
-  ```js
-  [function foo() { return 'bar' }]
-  ```
+```js
+[function foo() { return 'bar' }]
+```
 
-  for example, could never occur since FunctionExpression is forbidden when
-  trying to collapse a literal if this is set.
+for example, could never occur since FunctionExpression is forbidden when
+trying to collapse a literal if this is set.
 
-  You can also limit the depth of nested literals. All literals begin at a depth
-  of 1, and for performance reasons setting a maxDepth of greater than 3 is
-  ignored. For example, `{foo: { bar: 'baz' }}` has a depth of two and would be
-  collapsed if the maxDepth is 2 or greater.
+You can also limit the depth of nested literals. All literals begin at a depth
+of 1, and for performance reasons setting a maxDepth of greater than 3 is
+ignored. For example, `{foo: { bar: 'baz' }}` has a depth of two and would be
+collapsed if the maxDepth is 2 or greater.
 
-  The following is the default configuration for the plugin:
+The following is the default configuration for the plugin:
 
-  ```js
+```js
 
-  {
-    ObjectExpression: {
-      maxLineLength: 80,
-      maxKeys: 3,
-      maxDepth: 2,
-      forbidden: [
-        'FunctionExpression'
-      ]
-    },
-    ArrayExpression: {
-      maxLineLength: 80,
-      maxKeys: 3,
-      maxDepth: 2,
-      forbidden: [
-        'FunctionExpression'
-      ]
-    }
+{
+  ObjectExpression: {
+    maxLineLength: 80,
+    maxKeys: 3,
+    maxDepth: 2,
+    forbidden: [
+      'FunctionExpression'
+    ]
+  },
+  ArrayExpression: {
+    maxLineLength: 80,
+    maxKeys: 3,
+    maxDepth: 2,
+    forbidden: [
+      'FunctionExpression'
+    ]
   }
-  ```
+}
+```
 
 ## JavaScript API
 
