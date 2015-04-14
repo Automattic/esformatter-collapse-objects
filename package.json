@@ -1,14 +1,14 @@
 {
-  "name": "esformatter-collapse-objects",
+  "name": "esformatter-collapse-objects-a8c",
   "version": "0.1.0",
-  "description": "esformatter plugin: conditionally collapses objects and array literals",
+  "description": "esformatter plugin: conditionally collapses objects and array literals, a8c fork",
   "main": "index.js",
   "scripts": {
     "test": "mocha --ui bdd --reporter spec test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wbinnssmith/esformatter-collapse-objects.git"
+    "url": "https://github.com/automattic/esformatter-collapse-objects.git"
   },
   "keywords": [
     "esformatter",
@@ -17,9 +17,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wbinnssmith/esformatter-collapse-objects"
+    "url": "https://github.com/automattic/esformatter-collapse-objects"
   },
-  "homepage": "https://github.com/wbinnssmith/esformatter-collapse-objects",
+  "homepage": "https://github.com/automattic/esformatter-collapse-objects",
   "devDependencies": {
     "mocha": "https://github.com/millermedeiros/mocha/tarball/latest",
     "chai": "^1.4",

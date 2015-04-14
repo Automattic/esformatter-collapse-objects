@@ -3,13 +3,15 @@
 [esformatter](https://github.com/millermedeiros/esformatter) plugin for
 conditionally collapsing object and array literals.
 
+An Automattic fork of [wbinnssmith's original](https://github.com/wbinnssmith/esformatter-collapse-objects)
+
 
 ## Usage
 
 install it:
 
 ```sh
-npm install esformatter-collapse-objects
+npm install esformatter-collapse-objects-a8c
 ```
 
 and something like this to your esformatter config file:
@@ -23,7 +25,6 @@ and something like this to your esformatter config file:
     "ObjectExpression": {
       "maxLineLength": 80,
       "maxKeys": 3,
-      "maxDepth": 1,
       "forbidden": [
         "FunctionExpression"
       ]
@@ -31,7 +32,6 @@ and something like this to your esformatter config file:
     "ArrayExpression": {
       "maxLineLength": 80,
       "maxKeys": 5,
-      "maxDepth": 2,
       "forbidden": [
         "FunctionExpression"
       ]
@@ -75,11 +75,6 @@ FunctionExpression.
 for example, could never occur since FunctionExpression is forbidden when
 trying to collapse a literal if this is set.
 
-You can also limit the depth of nested literals. All literals begin at a depth
-of 1, and for performance reasons setting a maxDepth of greater than 3 is
-ignored. For example, `{foo: { bar: 'baz' }}` has a depth of two and would be
-collapsed if the maxDepth is 2 or greater.
-
 The following is the default configuration for the plugin:
 
 ```js
@@ -88,7 +83,6 @@ The following is the default configuration for the plugin:
   ObjectExpression: {
     maxLineLength: 80,
     maxKeys: 3,
-    maxDepth: 2,
     forbidden: [
       'FunctionExpression'
     ]
@@ -96,7 +90,6 @@ The following is the default configuration for the plugin:
   ArrayExpression: {
     maxLineLength: 80,
     maxKeys: 3,
-    maxDepth: 2,
     forbidden: [
       'FunctionExpression'
     ]
@@ -117,7 +110,6 @@ var output = esformatter.format(str, {
     "ObjectExpression": {
       maxLineLength: 80,
       maxKeys: 3,
-      maxDepth: 1,
       forbidden: [
         'FunctionExpression'
       ]
@@ -125,7 +117,6 @@ var output = esformatter.format(str, {
     "ArrayExpression": {
       maxLineLength: 80,
       maxKeys: 5,
-      maxDepth: 2,
       forbidden: [
         'FunctionExpression'
       ]
